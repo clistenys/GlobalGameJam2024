@@ -8,38 +8,25 @@ public class PlayerCombat : MonoBehaviour
     public float attackCooldown = 1f;
     private float nextAttackTime = 0f;
 
-    // Adicionamos uma referência ao componente Health
-    private Health playerHealth;
-
-    void Start()
-    {
-        // Obtém a referência ao componente Health
-        playerHealth = GetComponent<Health>();
-    }
-
-    void Update()
+    public void Attack()
     {
         if (Input.GetButtonDown("Attack") && Time.time >= nextAttackTime)
         {
-            Attack();
-            nextAttackTime = Time.time + 1f / attackCooldown;
-        }
-    }
+            Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
 
-    void Attack()
-    {
-        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
-
-        foreach (Collider2D enemy in hitEnemies)
-        {
-            // Obtém a referência ao componente Health do inimigo
-            Health enemyHealth = enemy.GetComponent<Health>();
-            if (enemyHealth != null)
+            foreach (Collider2D enemy in hitEnemies)
             {
-                // Aplica dano ao inimigo
-                enemyHealth.TakeDamage(20); // Ajuste conforme necessário
+                // Obtém a referência ao componente Health do inimigo
+                Health enemyHealth = enemy.GetComponent<Health>();
+                if (enemyHealth != null)
+                {
+                    // Aplica dano ao inimigo
+                    enemyHealth.TakeDamage(20); // Ajuste conforme necessário
+                }
             }
-        }
+
+            nextAttackTime = Time.time + 1f / attackCooldown;
+        }     
     }
 
     void OnDrawGizmosSelected()
