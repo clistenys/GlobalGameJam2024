@@ -1,20 +1,42 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public PlayerMovement playerMovement;
+    [Header("Permitions")]
+    public bool canMove;
+    public bool canAtack;
 
-    // Start is called before the first frame update
+    [Header("Abilities")]
+    private PlayerMovement playerMovement;
+    private PlayerCombat playerCombat;
+    private Health playerHealth;
+
     void Start()
     {
+        // Obtém as referências aos componentes necessários
         playerMovement = GetComponent<PlayerMovement>();
+        playerCombat = GetComponent<PlayerCombat>();
+        playerHealth = GetComponent<Health>();
+
+        canMove = true;
+        canAtack = true;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        playerMovement.Move();
+        HandleMovement();
+        HandleCombat();
+    }
+
+    void HandleMovement()
+    {
+        if (canMove) 
+            playerMovement.Move();
+    }
+
+    void HandleCombat()
+    {
+        if (canAtack)
+            playerCombat.Attack();
     }
 }
