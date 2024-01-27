@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SoundManager : MonoBehaviour
+public class AudioManager : MonoBehaviour
 {
+    public AudioSource speechesAudioSource;
     // Start is called before the first frame update
     void Start()
     {

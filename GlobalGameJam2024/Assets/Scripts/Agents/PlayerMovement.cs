@@ -16,14 +16,12 @@ public class PlayerMovement : PlayerAbility
         canUse = true;
     }
 
-    void Update()
-    {
-        if (canUse)
-            ProcessAbility();
-    }
 
-    public void ProcessAbility()
+    public void Move()
     {
+        if (!canUse)
+            return;
+
         // Obtém as entradas do teclado
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");

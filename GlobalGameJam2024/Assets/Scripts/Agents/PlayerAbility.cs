@@ -9,7 +9,7 @@ public class PlayerAbility : MonoBehaviour
     // Start is called before the first frame update
     public virtual void Start()
     {
-        Debug.Log("teste");
+
     }
 
     // Update is called once per frame
