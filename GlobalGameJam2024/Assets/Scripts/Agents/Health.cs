@@ -2,38 +2,39 @@ using UnityEngine;
 
 public class Health: MonoBehaviour
 {
-    public int maxHealth = 100; // Vida máxima
-    private int currentHealth;   // Vida atual
+    public int maxHealth = 100;
+    public int currentHealth;
+
+    [Header("Audio Sources")]
+    public AudioSource SfxAudioSource;
+
+    [Header("Feedbacks")]
+    public AudioClip takeDamageSfx;
+    
 
     void Start()
     {
-        currentHealth = maxHealth; // Inicializa a vida atual com a vida máxima no início
+        currentHealth = maxHealth;
     }
 
     public void TakeDamage(int damage)
     {
-        // Reduz a vida atual com base no dano recebido
+        SfxAudioSource.clip = takeDamageSfx;
+        SfxAudioSource.Play();
+
         currentHealth -= damage;
+        Debug.Log(currentHealth);
 
-        // Verifica se a entidade ainda está viva
-        if (currentHealth <= 0)
+        if(currentHealth <= 0f)
         {
-            Die();
+            SfxAudioSource.clip = takeDamageSfx;
+            SfxAudioSource.Play();
         }
-    }
-
-    void Die()
-    {
-        // Adicione aqui a lógica de morte (por exemplo, desativar o GameObject, exibir uma animação, etc.)
-        Debug.Log(gameObject.name + " morreu!");
     }
 
     public void Heal(int amount)
     {
-        // Adiciona vida à entidade
         currentHealth += amount;
-
-        // Garante que a vida atual não exceda a vida máxima
         currentHealth = Mathf.Min(currentHealth, maxHealth);
     }
 
@@ -43,7 +44,6 @@ public class Health: MonoBehaviour
         return currentHealth;
     }
 
-    // Método para obter a vida máxima
     public int GetMaxHealth()
     {
         return maxHealth;

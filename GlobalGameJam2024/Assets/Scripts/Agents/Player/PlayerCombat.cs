@@ -12,6 +12,7 @@ public class PlayerCombat : MonoBehaviour
     {
         if (Input.GetButtonDown("Attack") && Time.time >= nextAttackTime)
         {
+            Debug.Log("atacou");
             Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
 
             foreach (Collider2D enemy in hitEnemies)
@@ -22,10 +23,16 @@ public class PlayerCombat : MonoBehaviour
                 {
                     // Aplica dano ao inimigo
                     enemyHealth.TakeDamage(20); // Ajuste conforme necessário
+
+                    if (enemyHealth.currentHealth <= 0)
+                    {
+                        Debug.Log(enemy.name + " morreu!");
+                        Destroy(enemy.gameObject);
+                    }
                 }
             }
 
-            nextAttackTime = Time.time + 1f / attackCooldown;
+            nextAttackTime = Time.time + attackCooldown;
         }     
     }
 
