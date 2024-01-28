@@ -4,6 +4,9 @@ public class PlayerMovement : MonoBehaviour
 {
     public float speed = 5f;
 
+    public GameObject playerModel;
+    public bool isFacingRight;
+
     public void Move()
     {
         float horizontalInput = Input.GetAxisRaw("Horizontal");
@@ -19,4 +22,14 @@ public class PlayerMovement : MonoBehaviour
             transform.position += movement * speed * Time.deltaTime;
         }
     }
+
+    void Flip()
+    {
+        if(Input.GetAxisRaw("Horizontal") > 0)
+            playerModel.transform.localScale = new Vector3(1f, 1f, 1f);
+
+        if (Input.GetAxisRaw("Horizontal") < 0)
+            playerModel.transform.localScale = new Vector3(-1f, 1f, 1f);
+    }
+
 }
