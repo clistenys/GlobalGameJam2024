@@ -12,7 +12,6 @@ public class PlayerMovement : MonoBehaviour
     }
 
     public GameObject playerModel;
-    public bool isFacingRight;
 
     public void Move()
     {
@@ -44,18 +43,6 @@ public class PlayerMovement : MonoBehaviour
             animator.SetBool("isWalking", false);
         }
     }
-
-<<<<<<< Updated upstream
-    void Flip()
-    {
-        if(Input.GetAxisRaw("Horizontal") > 0)
-            playerModel.transform.localScale = new Vector3(1f, 1f, 1f);
-
-        if (Input.GetAxisRaw("Horizontal") < 0)
-            playerModel.transform.localScale = new Vector3(-1f, 1f, 1f);
-    }
-
-=======
     public void Flip()
     {
         // Inverte a escala horizontal do objeto
@@ -64,5 +51,4 @@ public class PlayerMovement : MonoBehaviour
         // Atualiza a flag de direção
         isFacingRight = !isFacingRight;
     }
->>>>>>> Stashed changes
 }
