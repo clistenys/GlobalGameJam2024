@@ -39,6 +39,11 @@ public class FirstBossController : MonoBehaviour
 
     void Update()
     {
+        if (health.GetCurrentHealth() <= 0)
+        {
+            Destroy(gameObject);
+        }
+
         if (!isWaiting)
         {
             MoveTowardsDestination();

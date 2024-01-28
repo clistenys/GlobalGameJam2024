@@ -29,6 +29,8 @@ public class PlayerController : MonoBehaviour
     {
         HandleMovement();
         HandleCombat();
+
+        Debug.Log(playerHealth.GetCurrentHealth());
     }
 
     void HandleMovement()

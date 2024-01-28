@@ -107,4 +107,17 @@ public class FirstBossItem : MonoBehaviour
             isPaused = false;
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.GetComponent<PlayerMovement>())
+        {
+            
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        
+    }
 }

@@ -1,7 +1,10 @@
+using System.Collections;
 using UnityEngine;
 
 public class PlayerCombat : MonoBehaviour
 {
+    [SerializeField] Animator bossAnimator;
+
     public Transform attackPoint;
     public float attackRange = 0.5f;
     public LayerMask enemyLayer;
@@ -23,6 +26,8 @@ public class PlayerCombat : MonoBehaviour
                 {
                     // Aplica dano ao inimigo
                     enemyHealth.TakeDamage(20); // Ajuste conforme necessário
+                    bossAnimator.SetBool("takeDamage", true);
+                    StartCoroutine(BackToIdleAnimation());
 
                     if (enemyHealth.currentHealth <= 0)
                     {
@@ -33,7 +38,14 @@ public class PlayerCombat : MonoBehaviour
             }
 
             nextAttackTime = Time.time + attackCooldown;
-        }     
+        }
+        
+    }
+
+    public IEnumerator BackToIdleAnimation()
+    {
+        yield return new WaitForSeconds(1f);
+        bossAnimator.SetBool("takeDamage", false);
     }
 
     void OnDrawGizmosSelected()
