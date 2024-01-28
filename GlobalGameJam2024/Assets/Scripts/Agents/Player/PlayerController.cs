@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
     private PlayerCombat playerCombat;
     private Health playerHealth;
 
+    private bool hasItem;
+
     void Start()
     {
         // Obtém as referências aos componentes necessários
@@ -20,6 +22,7 @@ public class PlayerController : MonoBehaviour
 
         canMove = true;
         canAtack = true;
+        hasItem = false;
     }
 
     void Update()
@@ -38,5 +41,15 @@ public class PlayerController : MonoBehaviour
     {
         if (canAtack)
             playerCombat.Attack();
+    }
+
+    public void GetItem()
+    {
+        hasItem = true;
+    }
+
+    public bool HasItem()
+    {
+        return hasItem;
     }
 }

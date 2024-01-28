@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NPC : MonoBehaviour
+public class Item : MonoBehaviour
 {
+    [SerializeField] GameManager gameManager;
     [SerializeField] DialogueSystem dialogueSystem;
     [SerializeField] Dialogue dialogue;
     private bool isInArea, isActive, isFinished;
 
-    // Start is called before the first frame update
     void Start()
     {
         isInArea = false;
@@ -34,6 +34,7 @@ public class NPC : MonoBehaviour
             }
             else
             {
+                gameManager.GetItem();
                 dialogueSystem.HidePanel();
                 isActive = false;
                 isFinished = false;
@@ -45,7 +46,7 @@ public class NPC : MonoBehaviour
     {
         isActive = true;
         isFinished = dialogueSystem.StartDialogue(dialogue);
-        if(isFinished)
+        if (isFinished)
         {
             dialogueSystem.HidePanel();
             isActive = false;
@@ -58,9 +59,11 @@ public class NPC : MonoBehaviour
         isFinished = dialogueSystem.NextText(dialogue);
         if (isFinished)
         {
+            gameManager.GetItem();
             dialogueSystem.HidePanel();
             isActive = false;
             isFinished = false;
+            Destroy(this.gameObject);
         }
     }
 
