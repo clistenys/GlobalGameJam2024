@@ -10,10 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f28534a14d8c18142a917c0ea481b878, type: 3}
-  m_Name: ItemDialogue
+  m_Name: Cacto
   m_EditorClassIdentifier: 
-  title: Item
+  title: Muka Murimosca
   dialogue:
-  - Estes sapatos me parecem diferentes
-  - "Por que ser\xE1 que est\xE1 aqui?"
-  - "\xC9 bom levar junto"
+  - Wanw!
+  - "A \xE1gua da esperan\xE7a foi secando, deixando este reino \xE1rido e sem vida. "
+  - "O guardi\xE3o esconde-se entre espinhos. "
+  - "Laura, enfrente o deserto da opress\xE3o e traz de volta a alegria que um dia
+    floresceu."
+  - "Voc\xEA consegue, one chan :3"

@@ -10,10 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f28534a14d8c18142a917c0ea481b878, type: 3}
-  m_Name: ItemDialogue
+  m_Name: Mosca
   m_EditorClassIdentifier: 
-  title: Item
+  title: Muka Muriseca
   dialogue:
-  - Estes sapatos me parecem diferentes
-  - "Por que ser\xE1 que est\xE1 aqui?"
-  - "\xC9 bom levar junto"
+  - Moshi moshi!
+  - O mau cheiro daquele cara cobre essa cidade como eu no seu lanche.
+  - Mas nem mesmo eu aguento aquele fedor.
+  - "Ele jura que \xE9 engra\xE7ado."
+  - "O que!? Esse \xE9 so o meu nome, eu sou uma mosca. Aff"
+  - Bzzz! Bzzz!

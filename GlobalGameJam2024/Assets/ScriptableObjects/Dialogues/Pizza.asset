@@ -10,10 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f28534a14d8c18142a917c0ea481b878, type: 3}
-  m_Name: ItemDialogue
+  m_Name: Pizza
   m_EditorClassIdentifier: 
-  title: Item
+  title: "Pit S\xE1"
   dialogue:
-  - Estes sapatos me parecem diferentes
-  - "Por que ser\xE1 que est\xE1 aqui?"
-  - "\xC9 bom levar junto"
+  - Mama mia!
+  - 'A alegria foi servida numa bandeja de tristeza. '
+  - "Neste reino sem sabor, o guardi\xE3o da Rel\xEDquia transformou o riso em uma
+    lembran\xE7a distante. "
+  - "Laura, s\xF3 voc\xEA pode romper com a monotonia e devolver o tempero da felicidade"
